@@ -796,3 +796,167 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Language switcher */
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Project links */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.github-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* Contact form */
+.contact-form {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  max-width: 520px;
+  margin: 32px auto 0;
+  text-align: left;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form label > span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.contact-form input,
+.contact-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.035);
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #b58aff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #96919f;
+}
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.form-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.success-message {
+  color: #78dfaa;
+}
+
+.error-message {
+  color: #ff9292;
+}
+
+.spin {
+  animation: form-spin 1s linear infinite;
+}
+
+@keyframes form-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.contact-form .contact-note {
+  display: block;
+  line-height: 1.6;
+  opacity: 0.65;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .language-toggle {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .contact-form {
+    margin-top: 24px;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+}
