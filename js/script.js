@@ -1,196 +1,363 @@
+"use strict";
 
+/* =========================================
+   CONFIGURATION
+========================================= */
+const CONFIG = {
+  // FormSubmit AJAX endpoint for your email.
+  FORM_URL: "https://formsubmit.co/ajax/meerimtee@gmail.com"
+};
+
+/* =========================================
+   TRANSLATIONS
+========================================= */
 const translations = {
   ru: {
-    navWork: "Проекты",
-    navContact: "Контакт",
-    navCta: "Обсудить проект",
-    eyebrow: "Независимая digital-студия",
-    heroTitle: 'Идеи превращаются<br>в <span class="accent-text">цифровой опыт.</span>',
-    heroDescription:
-      "Создаём веб-проекты, браузерные игры и цифровые решения с вниманием к каждой детали.",
-    heroButton: "Исследовать проекты",
-    heroContact: "Связаться с нами",
-    heroLocation: "БИШКЕК, КЫРГЫЗСТАН",
-    heroAvailability: "ОТКРЫТЫ К НОВЫМ ИДЕЯМ",
-    projectsEyebrow: "ИЗБРАННЫЕ РАБОТЫ / 01—03",
-    projectsTitle: 'Создано с <span>характером.</span>',
-    projectsDescription:
-      "Несколько проектов, в которых идеи становятся интерактивными.",
-    battleshipType: "БРАУЗЕРНАЯ ИГРА",
-    battleshipDescription:
-      "Классическая морская битва в интерактивном формате.",
-    chatbotType: "ЧАТ-БОТ",
-    chatbotDescription:
-      "Простой чат-бот с характером и собственным стилем общения.",
-    coinrushType: "МУЛЬТИПЛЕЕРНАЯ ИГРА",
-    coinrushDescription:
-      "Игровой проект с комнатой для совместного прохождения.",
-    contactEyebrow: "ЕСТЬ ИДЕЯ?",
-    contactTitle: 'Давайте создадим<br><span>что-то особенное.</span>',
-    contactDescription: "Оставьте контакты, чтобы обсудить вашу идею.",
+    navProjects: "ПРОЕКТЫ",
+    navAbout: "О НАС",
+    navContact: "КОНСУЛЬТАЦИЯ",
+    heroEyebrow: "GAME DEVELOPMENT & CREATIVE TECHNOLOGIES",
+    heroLine1: "Создаём",
+    heroLine2: "цифровые миры",
+    heroDescription: "Игры, веб-приложения и боты — с вниманием к качеству, деталям и пользовательскому опыту.",
+    heroProjects: "Смотреть проекты",
+    heroContact: "Обсудить проект",
+    scroll: "ПРОКРУТИТЕ ВНИЗ",
+    projectsEyebrow: "ПОРТФОЛИО",
+    projectsTitle: "Избранные проекты",
+    projectsIntro: "Игры и приложения, созданные с вниманием к деталям, логике и пользовательскому опыту.",
+    typeGame: "ИГРА",
+    typeBot: "БОТ",
+    liveDemo: "ДЕМО",
+    sourceCode: "ИСХОДНЫЙ КОД",
+    battleshipDesc: "Классический морской бой в браузере с расстановкой кораблей и игровой логикой.",
+    coinRushDesc: "Многопользовательская игра про сбор монет и соревнование с другими игроками.",
+    chatBotDesc: "Чат-бот с открытым исходным кодом. Исходники доступны в репозитории GitHub.",
+    aboutEyebrow: "О СТУДИИ",
+    aboutTitle: "Идеи становятся реальностью.",
+    aboutText1: "MCRTEE STUDIO — независимая разработческая студия, работающая над играми, веб-приложениями и цифровыми инструментами.",
+    aboutText2: "Мы соединяем разработку, дизайн и интерактивность, чтобы превращать идеи в работающие продукты.",
+    contactEyebrow: "СЛЕДУЮЩИЙ ШАГ",
+    contactTitle: "Есть идея? Давайте обсудим.",
+    contactDescription: "Расскажите немного о своей задаче. Оставьте контакты, и мы сможем обсудить ваш проект.",
     nameLabel: "Ваше имя",
-    namePlaceholder: "Имя",
     phoneLabel: "Номер телефона",
+    serviceLabel: "Что вы хотите создать?",
+    optionGame: "Игра",
+    optionWebsite: "Веб-сайт",
+    optionBot: "Чат-бот",
+    optionOther: "Другое",
+    detailsLabel: "Кратко о проекте (необязательно)",
+    detailsPlaceholder: "Расскажите о своей идее...",
     submitButton: "Отправить заявку",
-    formPrivacy:
-      "Нажимая кнопку, вы соглашаетесь на обработку отправленных контактных данных для ответа на вашу заявку.",
-    footerText: "Независимая студия · Бишкек, Кыргызстан",
-    requiredFields: "Пожалуйста, заполните все поля.",
     sending: "Отправляем заявку...",
-    success: "Заявка отправлена! Спасибо, мы свяжемся с вами.",
-    error: "Не удалось отправить заявку. Попробуйте ещё раз или напишите на email."
+    success: "Заявка отправлена. Спасибо! Если это первое использование FormSubmit, проверьте почту для подтверждения адреса.",
+    error: "Не удалось отправить заявку. Проверьте подключение и попробуйте ещё раз.",
+    invalidName: "Введите имя длиной не менее 2 символов.",
+    invalidPhone: "Введите корректный номер телефона.",
+    wait: "Пожалуйста, подождите перед следующей отправкой.",
+    backTop: "Наверх ↑",
+    openMenu: "Открыть меню",
+    closeMenu: "Закрыть меню"
   },
-
   en: {
-    navWork: "Projects",
-    navContact: "Contact",
-    navCta: "Discuss a project",
-    eyebrow: "Independent digital studio",
-    heroTitle: 'Ideas become<br><span class="accent-text">digital experiences.</span>',
-    heroDescription:
-      "We create web projects, browser games, and digital experiences with attention to every detail.",
-    heroButton: "Explore projects",
-    heroContact: "Get in touch",
-    heroLocation: "BISHKEK, KYRGYZSTAN",
-    heroAvailability: "OPEN TO NEW IDEAS",
-    projectsEyebrow: "SELECTED WORK / 01—03",
-    projectsTitle: 'Built with <span>character.</span>',
-    projectsDescription:
-      "A selection of projects turning ideas into interactive experiences.",
-    battleshipType: "BROWSER GAME",
-    battleshipDescription:
-      "A classic naval battle brought to an interactive format.",
-    chatbotType: "CHAT BOT",
-    chatbotDescription:
-      "A simple chatbot with a personality and its own conversational style.",
-    coinrushType: "MULTIPLAYER GAME",
-    coinrushDescription:
-      "A game project with a room for playing together.",
-    contactEyebrow: "HAVE AN IDEA?",
-    contactTitle: "Let's create<br><span>something special.</span>",
-    contactDescription: "Leave your contact details to discuss your idea.",
+    navProjects: "PROJECTS",
+    navAbout: "ABOUT",
+    navContact: "CONSULTATION",
+    heroEyebrow: "GAME DEVELOPMENT & CREATIVE TECHNOLOGIES",
+    heroLine1: "We create",
+    heroLine2: "digital worlds",
+    heroDescription: "Games, web applications and bots — with a focus on quality, detail and user experience.",
+    heroProjects: "View projects",
+    heroContact: "Discuss a project",
+    scroll: "SCROLL TO EXPLORE",
+    projectsEyebrow: "PORTFOLIO",
+    projectsTitle: "Selected work",
+    projectsIntro: "Games and applications built with attention to detail, logic and user experience.",
+    typeGame: "GAME",
+    typeBot: "BOT",
+    liveDemo: "LIVE DEMO",
+    sourceCode: "SOURCE CODE",
+    battleshipDesc: "Classic browser Battleship featuring ship placement and game logic.",
+    coinRushDesc: "A multiplayer coin-collecting game where players compete with each other.",
+    chatBotDesc: "An open-source chat bot. Source code is available in the GitHub repository.",
+    aboutEyebrow: "ABOUT THE STUDIO",
+    aboutTitle: "Ideas become reality.",
+    aboutText1: "MCRTEE STUDIO is an independent development studio working on games, web applications and digital tools.",
+    aboutText2: "We combine development, design and interactivity to turn ideas into working products.",
+    contactEyebrow: "THE NEXT STEP",
+    contactTitle: "Have an idea? Let's talk.",
+    contactDescription: "Tell us a little about your idea. Leave your contact details so we can discuss your project.",
     nameLabel: "Your name",
-    namePlaceholder: "Name",
     phoneLabel: "Phone number",
-    submitButton: "Send an inquiry",
-    formPrivacy:
-      "By submitting this form, you agree to the processing of your contact details so we can respond to your inquiry.",
-    footerText: "Independent studio · Bishkek, Kyrgyzstan",
-    requiredFields: "Please complete all fields.",
+    serviceLabel: "What would you like to create?",
+    optionGame: "Game",
+    optionWebsite: "Website",
+    optionBot: "Chat bot",
+    optionOther: "Other",
+    detailsLabel: "Brief project details (optional)",
+    detailsPlaceholder: "Tell us about your idea...",
+    submitButton: "Send inquiry",
     sending: "Sending your inquiry...",
-    success: "Your inquiry has been sent. Thank you!",
-    error: "Could not send your inquiry. Please try again or email us directly."
+    success: "Inquiry submitted. Thank you! If this is your first time using FormSubmit, check your email to confirm the address.",
+    error: "Could not send your inquiry. Check your connection and try again.",
+    invalidName: "Enter a name with at least 2 characters.",
+    invalidPhone: "Enter a valid phone number.",
+    wait: "Please wait before submitting another request.",
+    backTop: "Back to top ↑",
+    openMenu: "Open menu",
+    closeMenu: "Close menu"
   }
 };
 
-let currentLanguage = "ru";
+/* =========================================
+   LANGUAGE SWITCHING
+========================================= */
+let currentLang = "en";
 
-const languageToggle = document.getElementById("languageToggle");
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
-const submitButton = contactForm.querySelector('button[type="submit"]');
-const submitButtonText = submitButton.querySelector("[data-i18n]");
-const currentYear = document.getElementById("currentYear");
-
-function setLanguage(language) {
-  currentLanguage = language;
-  document.documentElement.lang = language;
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    const translatedText = translations[language][key];
-
-    if (translatedText !== undefined) {
-      element.innerHTML = translatedText;
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-    const key = element.dataset.i18nPlaceholder;
-    const translatedText = translations[language][key];
-
-    if (translatedText !== undefined) {
-      element.placeholder = translatedText;
-    }
-  });
-
-  languageToggle.textContent = language === "ru" ? "EN" : "RU";
+try {
+  const saved = localStorage.getItem("mcrtee-language");
+  if (saved === "ru" || saved === "en") {
+    currentLang = saved;
+  } else {
+    currentLang = (navigator.language || "").toLowerCase().startsWith("ru")
+      ? "ru"
+      : "en";
+  }
+} catch (error) {
+  currentLang = "en";
 }
 
-languageToggle.addEventListener("click", () => {
-  const nextLanguage = currentLanguage === "ru" ? "en" : "ru";
-  setLanguage(nextLanguage);
+function setLanguage(language) {
+  if (!translations[language]) return;
+
+  currentLang = language;
+  document.documentElement.lang = language;
+
+  try {
+    localStorage.setItem("mcrtee-language", language);
+  } catch (error) {
+    // Language selection still works for this page.
+  }
+
+  document.querySelectorAll("[data-i]").forEach(element => {
+    const key = element.dataset.i;
+    const translated = translations[language][key];
+    if (translated !== undefined) {
+      element.textContent = translated;
+    }
+  });
+
+  document.querySelectorAll("[data-i-placeholder]").forEach(element => {
+    const key = element.dataset.iPlaceholder;
+    const translated = translations[language][key];
+    if (translated !== undefined) {
+      element.placeholder = translated;
+    }
+  });
+
+  document.querySelectorAll("[data-lang]").forEach(button => {
+    const active = button.dataset.lang === language;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  updateMenuLabel();
+
+  // Update the sending state without losing the language switch.
+  if (submitButton.disabled) {
+    submitButton.querySelector("[data-i]").textContent =
+      translations[language].sending;
+  }
+}
+
+document.querySelectorAll("[data-lang]").forEach(button => {
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.lang);
+  });
 });
 
-currentYear.textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-contactForm.addEventListener("submit", async (event) => {
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function updateMenuLabel() {
+  const isOpen = navLinks.classList.contains("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute(
+    "aria-label",
+    translations[currentLang][isOpen ? "closeMenu" : "openMenu"]
+  );
+  menuToggle.textContent = isOpen ? "×" : "☰";
+}
+
+function closeMenu() {
+  navLinks.classList.remove("open");
+  updateMenuLabel();
+}
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  updateMenuLabel();
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeMenu();
+});
+
+document.addEventListener("click", event => {
+  if (
+    navLinks.classList.contains("open") &&
+    !navLinks.contains(event.target) &&
+    !menuToggle.contains(event.target)
+  ) {
+    closeMenu();
+  }
+});
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+const revealElements = document.querySelectorAll(".reveal");
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if ("IntersectionObserver" in window && !reduceMotion) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => revealObserver.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add("visible"));
+}
+
+/* =========================================
+   CONTACT FORM -> FORMSUBMIT EMAIL
+========================================= */
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+const submitButton = document.getElementById("submitButton");
+
+let lastSuccessfulSubmit = 0;
+let isSubmitting = false;
+
+function showFormMessage(message, status) {
+  formMessage.textContent = message;
+  formMessage.className = "form-message";
+  if (status) {
+    formMessage.classList.add(status);
+  }
+}
+
+contactForm.addEventListener("submit", async event => {
   event.preventDefault();
 
-  formMessage.textContent = "";
-  formMessage.classList.remove("error");
+  if (isSubmitting) return;
 
-  if (!contactForm.reportValidity()) {
+  const t = translations[currentLang];
+  const name = contactForm.elements.namedItem("name").value.trim();
+  const phone = contactForm.elements.namedItem("phone").value.trim();
+  const projectType = contactForm.elements.namedItem("project_type").value;
+  const details = contactForm.elements.namedItem("details").value.trim();
+  const honey = contactForm.elements.namedItem("_honey").value;
+
+  // Silently reject submissions caught by the honeypot.
+  if (honey) return;
+
+  if (name.length < 2) {
+    showFormMessage(t.invalidName, "error");
+    contactForm.elements.namedItem("name").focus();
     return;
   }
 
-  // FormSubmit anti-spam honeypot.
-  const honeypot = contactForm.querySelector('[name="_honey"]');
+  const phoneDigits = phone.replace(/\D/g, "");
 
-  if (honeypot.value.trim() !== "") {
+  if (
+    !/^\+?[\d\s()\-]+$/.test(phone) ||
+    phoneDigits.length < 7 ||
+    phoneDigits.length > 15
+  ) {
+    showFormMessage(t.invalidPhone, "error");
+    contactForm.elements.namedItem("phone").focus();
     return;
   }
 
-  const originalButtonText = translations[currentLanguage].submitButton;
+  if (Date.now() - lastSuccessfulSubmit < 30000) {
+    showFormMessage(t.wait, "error");
+    return;
+  }
 
+  isSubmitting = true;
   submitButton.disabled = true;
-  submitButtonText.textContent = translations[currentLanguage].sending;
-  formMessage.textContent = translations[currentLanguage].sending;
+  showFormMessage(t.sending);
 
-  const formData = {
-    name: contactForm.elements.name.value.trim(),
-    phone: contactForm.elements.phone.value.trim(),
-    _subject: "New inquiry — mcrtee studio",
-    _captcha: "false"
+  const buttonLabel = submitButton.querySelector("[data-i]");
+  buttonLabel.textContent = t.sending;
+
+  const payload = {
+    name: name,
+    phone: phone,
+    project_type: projectType,
+    details: details || "Not provided",
+    language: currentLang.toUpperCase(),
+    _subject: "New project inquiry — MCRTEE STUDIO",
+    _template: "table",
+    _honey: ""
   };
 
   try {
-    const response = await fetch(
-      "https://formsubmit.co/ajax/meerimtee@gmail.com",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(formData)
-      }
-    );
+    const response = await fetch(CONFIG.FORM_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
     let result = {};
 
     try {
       result = await response.json();
-    } catch {
-      // Keep an empty result if the response is not valid JSON.
+    } catch (error) {
+      // Handle a non-JSON response below.
     }
 
-    if (!response.ok || result.success === false) {
-      throw new Error("Form submission failed");
+    if (
+      !response.ok ||
+      result.success === false ||
+      result.success === "false" ||
+      result.success === 0
+    ) {
+      throw new Error("FormSubmit did not confirm the request.");
     }
 
-    formMessage.textContent = translations[currentLanguage].success;
+    lastSuccessfulSubmit = Date.now();
     contactForm.reset();
+    showFormMessage(t.success, "success");
   } catch (error) {
-    console.error("FormSubmit error:", error);
-
-    formMessage.textContent = translations[currentLanguage].error;
-    formMessage.classList.add("error");
+    console.error("Contact form submission failed:", error);
+    showFormMessage(t.error, "error");
   } finally {
+    isSubmitting = false;
     submitButton.disabled = false;
-    submitButtonText.textContent = originalButtonText;
+    buttonLabel.textContent = translations[currentLang].submitButton;
   }
 });
 
-// Initialize the page in Russian.
-setLanguage("ru");
+/* Initialize the site. */
+setLanguage(currentLang);
