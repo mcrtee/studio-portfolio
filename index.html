@@ -1,13 +1,369 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>studio-portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>mcrtee studio — Game & Web Development</title>
+  <meta
+    name="description"
+    content="mcrtee studio — independent game and web development studio."
+  >
+  <meta name="theme-color" content="#10110f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="mcrtee studio home">
+      <span class="brand-mark">m.</span>
+      <span class="brand-name">mcrtee <span>studio</span></span>
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="#work" data-i18n="navWork">Проекты</a>
+      <a href="#contact" data-i18n="navContact">Контакт</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="language-button" id="languageToggle" type="button">
+        EN
+      </button>
+      <a class="header-cta" href="#contact" data-i18n="navCta">
+        Обсудить проект <span>↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          <span data-i18n="eyebrow">НЕЗАВИСИМАЯ DIGITAL-СТУДИЯ</span>
+        </div>
+
+        <h1 data-i18n="heroTitle">
+          Идеи превращаются<br>
+          в <span class="accent-text">цифровой опыт.</span>
+        </h1>
+
+        <p class="hero-description" data-i18n="heroDescription">
+          Создаём веб-проекты, браузерные игры и цифровые решения
+          с вниманием к каждой детали.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">
+            <span data-i18n="heroButton">Исследовать проекты</span>
+            <span aria-hidden="true">↘</span>
+          </a>
+          <a class="text-link" href="#contact">
+            <span data-i18n="heroContact">Связаться с нами</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span data-i18n="heroLocation">БИШКЕК, КЫРГЫЗСТАН</span>
+          <span class="meta-separator"></span>
+          <span data-i18n="heroAvailability">ОТКРЫТЫ К НОВЫМ ИДЕЯМ</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Abstract digital artwork">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-orbit orbit-three"></div>
+
+        <div class="art-center">
+          <span class="art-center-top">MCRTEE / DIGITAL</span>
+          <div class="art-symbol">m<span>.</span></div>
+          <span class="art-center-bottom">DESIGN × CODE × PLAY</span>
+        </div>
+
+        <span class="floating-label label-top">CREATIVE<br>TECHNOLOGY</span>
+        <span class="floating-label label-bottom">EST. 2026</span>
+        <span class="art-cross cross-one">+</span>
+        <span class="art-cross cross-two">+</span>
+      </div>
+    </section>
+
+    <section class="projects section-shell" id="work">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-eyebrow" data-i18n="projectsEyebrow">
+            ИЗБРАННЫЕ РАБОТЫ / 01—03
+          </p>
+          <h2 data-i18n="projectsTitle">Создано с <span>характером.</span></h2>
+        </div>
+        <p class="section-note" data-i18n="projectsDescription">
+          Несколько проектов, в которых идеи становятся интерактивными.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <!-- Battleship -->
+        <article class="project-card">
+          <a
+            class="project-art battleship-art"
+            href="https://battleship-puce-psi.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Battleship project"
+          >
+            <span class="art-index">01 / GAME</span>
+
+            <svg class="battleship-illustration" viewBox="0 0 440 300" role="img" aria-label="Stylized battleship on a tactical grid">
+              <defs>
+                <pattern id="seaGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M32 0H0V32" fill="none" stroke="#c5d7c8" stroke-opacity=".17" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="shipGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#d6e6d4"/>
+                  <stop offset="100%" stop-color="#829a8b"/>
+                </linearGradient>
+              </defs>
+              <rect width="440" height="300" fill="url(#seaGrid)"/>
+              <circle cx="220" cy="150" r="105" fill="none" stroke="#d5e4d3" stroke-opacity=".3"/>
+              <circle cx="220" cy="150" r="76" fill="none" stroke="#d5e4d3" stroke-opacity=".25"/>
+              <circle cx="220" cy="150" r="45" fill="none" stroke="#d5e4d3" stroke-opacity=".2"/>
+              <path d="M220 35V265M105 150H335" stroke="#d5e4d3" stroke-opacity=".2"/>
+              <g transform="translate(220 150) rotate(-28)">
+                <path d="M-104 -17 L72 -17 L103 0 L72 17 L-104 17 L-90 0Z" fill="url(#shipGradient)" stroke="#f3f2e9" stroke-width="1.5"/>
+                <rect x="-38" y="-28" width="58" height="11" rx="2" fill="#d6e6d4"/>
+                <rect x="-15" y="-38" width="19" height="10" rx="2" fill="#d6e6d4"/>
+                <rect x="9" y="-24" width="18" height="7" rx="2" fill="#d6e6d4"/>
+                <path d="M-69 0H65" stroke="#24392e" stroke-width="2" stroke-opacity=".5"/>
+                <path d="M-49 -17V17M-22 -17V17M5 -17V17M32 -17V17" stroke="#24392e" stroke-opacity=".3"/>
+              </g>
+              <circle cx="326" cy="86" r="18" fill="none" stroke="#f1a78c" stroke-width="2"/>
+              <circle cx="326" cy="86" r="5" fill="#f1a78c"/>
+              <path d="M326 57V70M326 102V115M297 86H310M342 86H355" stroke="#f1a78c" stroke-width="2"/>
+              <text x="20" y="276" fill="#d6e6d4" font-size="10" letter-spacing="3">TACTICAL MODE / 001</text>
+            </svg>
+
+            <span class="art-open">↗</span>
+          </a>
+
+          <div class="project-info">
+            <div>
+              <p class="project-type" data-i18n="battleshipType">БРАУЗЕРНАЯ ИГРА</p>
+              <h3>Battleship</h3>
+              <p class="project-description" data-i18n="battleshipDescription">
+                Классическая морская битва в интерактивном формате.
+              </p>
+            </div>
+            <a
+              class="project-link"
+              href="https://battleship-puce-psi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Battleship"
+            >↗</a>
+          </div>
+
+          <div class="project-tags">
+            <span>JavaScript</span><span>CSS</span><span>Game Logic</span>
+          </div>
+        </article>
+
+        <!-- Chat Bot -->
+        <article class="project-card">
+          <a
+            class="project-art chatbot-art"
+            href="https://github.com/mcrtee/chat-bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Chat Bot source code"
+          >
+            <span class="art-index">02 / BOT</span>
+
+            <svg class="chatbot-illustration" viewBox="0 0 440 300" role="img" aria-label="Original abstract chatbot illustration">
+              <circle cx="220" cy="150" r="104" fill="none" stroke="#f1d9c9" stroke-opacity=".17"/>
+              <circle cx="220" cy="150" r="75" fill="none" stroke="#f1d9c9" stroke-opacity=".17" stroke-dasharray="4 8"/>
+              <g transform="translate(220 142)">
+                <rect x="-76" y="-62" width="152" height="120" rx="28" fill="#f0e1d2"/>
+                <rect x="-55" y="-39" width="110" height="67" rx="17" fill="#a66b4d"/>
+                <circle cx="-25" cy="-7" r="8" fill="#f8eadc"/>
+                <circle cx="25" cy="-7" r="8" fill="#f8eadc"/>
+                <path d="M-19 12Q0 29 19 12" fill="none" stroke="#f8eadc" stroke-width="4" stroke-linecap="round"/>
+                <path d="M0 -62V-83" stroke="#f0e1d2" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="0" cy="-90" r="8" fill="#e7a781"/>
+                <rect x="-97" y="-24" width="18" height="45" rx="9" fill="#e7c9b5"/>
+                <rect x="79" y="-24" width="18" height="45" rx="9" fill="#e7c9b5"/>
+                <rect x="-38" y="65" width="76" height="12" rx="6" fill="#d5a58a"/>
+              </g>
+              <path d="M72 87H137Q147 87 147 97V117Q147 127 137 127H111L96 142V127H72Q62 127 62 117V97Q62 87 72 87Z" fill="#f0e1d2"/>
+              <circle cx="85" cy="107" r="3" fill="#a66b4d"/>
+              <circle cx="104" cy="107" r="3" fill="#a66b4d"/>
+              <circle cx="123" cy="107" r="3" fill="#a66b4d"/>
+              <path d="M303 174H355Q365 174 365 184V203Q365 213 355 213H337L322 228V213H303Q293 213 293 203V184Q293 174 303 174Z" fill="#e7a781"/>
+              <path d="M313 194H345" stroke="#8b5237" stroke-width="3" stroke-linecap="round"/>
+              <text x="20" y="276" fill="#f0e1d2" font-size="10" letter-spacing="3">CONVERSATION / 002</text>
+            </svg>
+
+            <span class="art-open">↗</span>
+          </a>
+
+          <div class="project-info">
+            <div>
+              <p class="project-type" data-i18n="chatbotType">ЧАТ-БОТ</p>
+              <h3>Chat Bot</h3>
+              <p class="project-description" data-i18n="chatbotDescription">
+                Простой чат-бот с характером и собственным стилем общения.
+              </p>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/mcrtee/chat-bot"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Chat Bot source code"
+            >↗</a>
+          </div>
+
+          <div class="project-tags">
+            <span>JavaScript</span><span>HTML</span><span>CSS</span>
+          </div>
+        </article>
+
+        <!-- Coin Rush -->
+        <article class="project-card">
+          <a
+            class="project-art coinrush-art"
+            href="https://coinrush-1uk0.onrender.com/?room=GCTD"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Coin Rush project"
+          >
+            <span class="art-index">03 / MULTIPLAYER</span>
+
+            <svg class="coinrush-illustration" viewBox="0 0 440 300" role="img" aria-label="Original coin and platform game illustration">
+              <circle cx="220" cy="150" r="105" fill="none" stroke="#e9e1b0" stroke-opacity=".14"/>
+              <circle cx="220" cy="150" r="77" fill="none" stroke="#e9e1b0" stroke-opacity=".14" stroke-dasharray="3 8"/>
+              <g transform="translate(220 122) rotate(-12)">
+                <ellipse cx="0" cy="13" rx="56" ry="62" fill="#a98739"/>
+                <ellipse cx="0" cy="0" rx="56" ry="62" fill="#e9d47c" stroke="#fff0b0" stroke-width="3"/>
+                <ellipse cx="0" cy="0" rx="42" ry="48" fill="none" stroke="#a98739" stroke-width="3"/>
+                <path d="M11 -30Q-23 -39 -23 -12Q-23 1 2 7Q25 14 21 30Q16 48 -15 35M0 -40V42" fill="none" stroke="#a98739" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <g transform="translate(68 194)">
+                <path d="M0 20L58 0L116 20L58 40Z" fill="#d6a85e"/>
+                <path d="M0 20V39L58 59V40Z" fill="#9b6c3c"/>
+                <path d="M58 40L116 20V39L58 59Z" fill="#bd8847"/>
+              </g>
+              <g transform="translate(258 197)">
+                <path d="M0 16L48 0L96 16L48 32Z" fill="#d6a85e"/>
+                <path d="M0 16V32L48 48V32Z" fill="#9b6c3c"/>
+                <path d="M48 32L96 16V32L48 48Z" fill="#bd8847"/>
+              </g>
+              <path d="M122 91L140 73L158 91M281 76L299 58L317 76" fill="none" stroke="#e9d47c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="20" y="276" fill="#e9d47c" font-size="10" letter-spacing="3">COLLECT / COMPETE / 003</text>
+            </svg>
+
+            <span class="art-open">↗</span>
+          </a>
+
+          <div class="project-info">
+            <div>
+              <p class="project-type" data-i18n="coinrushType">МУЛЬТИПЛЕЕРНАЯ ИГРА</p>
+              <h3>Coin Rush</h3>
+              <p class="project-description" data-i18n="coinrushDescription">
+                Игровой проект с комнатой для совместного прохождения.
+              </p>
+            </div>
+            <a
+              class="project-link"
+              href="https://coinrush-1uk0.onrender.com/?room=GCTD"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Coin Rush"
+            >↗</a>
+          </div>
+
+          <div class="project-tags">
+            <span>Java</span><span>PostgreSQL</span><span>MVC</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section section-shell" id="contact">
+      <div class="contact-copy">
+        <p class="eyebrow" data-i18n="contactEyebrow">ЕСТЬ ИДЕЯ?</p>
+        <h2 data-i18n="contactTitle">Давайте создадим<br><span>что-то особенное.</span></h2>
+        <p data-i18n="contactDescription">
+          Оставьте контакты, чтобы обсудить вашу идею.
+        </p>
+        <a class="email-link" href="mailto:meerimtee@gmail.com">
+          meerimtee@gmail.com <span>↗</span>
+        </a>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <label for="name" data-i18n="nameLabel">Ваше имя</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Имя"
+          data-i18n-placeholder="namePlaceholder"
+          autocomplete="name"
+          required
+        >
+
+        <label for="phone" data-i18n="phoneLabel">Номер телефона</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="+996 ..."
+          autocomplete="tel"
+          required
+        >
+
+        <input
+          type="text"
+          name="_honey"
+          class="honey-field"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        >
+
+        <button class="button button-primary form-submit" type="submit">
+          <span data-i18n="submitButton">Отправить заявку</span>
+          <span aria-hidden="true">↗</span>
+        </button>
+
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+
+        <p class="form-privacy" data-i18n="formPrivacy">
+          Нажимая кнопку, вы соглашаетесь на обработку отправленных контактных данных
+          для ответа на вашу заявку.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#home">mcrtee studio<span>®</span></a>
+    <p data-i18n="footerText">Независимая студия · Бишкек, Кыргызстан</p>
+    <a href="https://github.com/mcrtee" target="_blank" rel="noopener noreferrer">
+      GitHub ↗
+    </a>
+    <span class="copyright">© <span id="currentYear">2026</span></span>
+  </footer>
+</body>
 </html>
